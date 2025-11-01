@@ -44,13 +44,13 @@ output: HiggsAudioResponse = serve_engine.generate(
 
 
 # ✅ Save to WAV
-torchaudio.save("Belinda voice.wav", torch.from_numpy(output.audio)[None, :], output.sampling_rate)
-print(f"✅ Audio saved: Belinda voice.wav ({output.sampling_rate} Hz)")
+torchaudio.save("Belinda.wav", torch.from_numpy(output.audio)[None, :], output.sampling_rate)
+print(f"✅ Audio saved: Belinda.wav ({output.sampling_rate} Hz)")
 
 # ✅ (Optional) Convert to MP3 if pydub + ffmpeg installed
 try:
     from pydub import AudioSegment
-    AudioSegment.from_wav("Belinda voice.wav").export("Belinda voice.mp3", format="mp3")
-    print("🎧 MP3 saved as Belinda voice.mp3")
+    AudioSegment.from_wav("Belinda.wav").export("Belinda.mp3", format="mp3")
+    print("🎧 MP3 saved as Belinda.mp3")
 except Exception:
     print("⚠️ MP3 conversion skipped (install `pydub` + `ffmpeg` to enable)")
